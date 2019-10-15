@@ -1,0 +1,60 @@
+{
+  "name": "filter-empty",
+  "version": "0.0.1",
+  "main": "dist/bundle.js",
+  "module": "dist/bundle.js",
+  "files": [
+    "dist"
+  ],
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/plugin-external-helpers": "^7.2.0",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/preset-react": "^7.0.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "postcss-modules": "^1.4.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-scripts": "^3.1.1",
+    "rollup": "^1.21.4",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-uglify": "^6.0.3"
+  },
+  "peerDependencies": {
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build-examples": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build": "export NODE_ENV=production && rollup -c"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/lib/**/*.js",
+      "!src/lib/**/__tests__/**/*.js"
+    ]
+  }
+}

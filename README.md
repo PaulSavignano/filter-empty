@@ -24,13 +24,11 @@ Filter-Empty is a JavaScript library for removing empty values.
 <br />
 
 ## Installation
-
 ```
 npm install filter-empty
 ```
 
 ## Usage
-
 Here is an example to get you started:
 
 ```jsx
@@ -63,7 +61,6 @@ const filtered = filterEmpty(objToFilter)
 ```
 
 ## Examples
-
 [Codesandbox](https://codesandbox.io/s/filter-empty-mtlwh?fontsize=14)
 
 ## Contributing

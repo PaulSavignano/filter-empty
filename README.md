@@ -49,22 +49,22 @@ const objToFilter = {
 
 const filtered = filterEmpty(objToFilter)
 
-const result = {
-    level1: {
-    level2: {
-      level3: {
-        key1: 'This value is ok',
-      }
-    }
-  }
-}
+// result
+// {
+//   level1: {
+//     level2: {
+//       level3: {
+//         key1: 'This value is ok'
+//       }
+//     }
+//   }
+// }
+
 ```
 
 ## Examples
 
 [Codesandbox](https://codesandbox.io/s/filter-empty-mtlwh?fontsize=14)
 
-
 ## Contributing
 - see CONTRIBUTING.md
-# filter-empty

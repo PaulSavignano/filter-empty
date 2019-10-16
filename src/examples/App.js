@@ -1,5 +1,6 @@
 import React from "react";
 
+import "./App.css";
 import filterEmpty from '../lib'
 
 const obj = {

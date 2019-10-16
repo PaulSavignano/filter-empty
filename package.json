@@ -1,6 +1,6 @@
 {
   "name": "filter-empty",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "main": "dist/bundle.js",
   "module": "dist/bundle.js",
   "files": [

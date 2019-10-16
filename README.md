@@ -8,6 +8,7 @@ Filter empty values from objects and/or arrays.
 [![NPM Downloads](https://img.shields.io/npm/dm/filter-empty.svg?style=flat)](https://npmcharts.com/compare/filter-empty?minimal=true)
 [![CircleCI](https://img.shields.io/circleci/build/github/PaulSavignano/filter-empty/master.svg)](https://circleci.com/gh/PaulSavignano/filter-empty/tree/master)
 [![codecov.io](https://codecov.io/gh/PaulSavignano/filter-empty/branch/master/graph/badge.svg)](https://codecov.io/gh/PaulSavignano/filter-empty)
+[![BundleSize](https://img.shields.io/bundlephobia/minzip/filter-empty.svg)
 [![Dependencies](https://david-dm.org/PaulSavignano/filter-empty/master/status.svg)](https://david-dm.org/PaulSavignano/filter-empty/master)
 [![DevDependencies](https://david-dm.org/PaulSavignano/filter-empty/master/dev-status.svg)](https://david-dm.org/PaulSavignano/filter-empty/master?type=dev)
 [![PeerDependencies](https://david-dm.org/PaulSavignano/filter-empty/master/peer-status.svg)](https://david-dm.org/PaulSavignano/filter-empty/master?type=peer)

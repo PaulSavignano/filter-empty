@@ -1,41 +1,37 @@
-function filterEmpty(obj) {
-  return Object.keys(obj).reduce((a1, k) => {
-    const acc1 = a1
-    // handle non-objects
-    if (!(obj[k] === Object(obj[k]))) {
-      acc1[k] = obj[k]
-      return acc1
+import isObject from './isObject'
+import isValue from './isValue'
+import onAccumulator from './onAccumulator'
+
+function filterEmpty(arg) {
+  // handle non-objects
+  if (!isObject(arg)) {
+    if (isValue(arg)) {
+      return arg
     }
-    // handle arrays
-    if (Array.isArray(obj[k])) {
-      acc1[k] = obj[k].reduce((a2, v, i) => {
-        const acc2 = a2
-        // handle non-objects
-        if (!(v === Object(v))) {
-          acc2[i] = v
-          return acc2
-        }
-        // handle array
-        if (Array.isArray(v)) {
-          acc2[i] = filterEmpty(v)
-          return acc2
-        }
-        // handle object
-        if (Object.keys(v).length) {
-          acc2[i] = filterEmpty(v)
-          return acc2
-        }
-        return acc2
-      }, [])
-      return acc1
-    }
-    // handle object
-    if (Object.keys(obj[k]).length) {
-      acc1[k] = filterEmpty(obj[k])
-      return acc1
-    }
-    return acc1
-  }, {})
+  }
+  // handle array
+  if (Array.isArray(arg)) {
+    return arg.reduce((a, v, i) => {
+      return onAccumulator({
+        accumulator: a,
+        index: i,
+        recursorFn: filterEmpty,
+        value: v,
+      })
+    }, [])
+  }
+  // handle object
+  const keys = Object.keys(arg)
+  if (keys.length) {
+    return keys.reduce((a, k) => {
+      return onAccumulator({
+        accumulator: a,
+        index: k,
+        recursorFn: filterEmpty,
+        value: arg[k],
+      })
+    }, {})
+  }
 }
 
 export default filterEmpty

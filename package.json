@@ -1,6 +1,29 @@
 {
   "name": "filter-empty",
-  "version": "0.0.6",
+  "version": "0.0.7",
+  "description": "Filter empty values from objects and arrays",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PaulSavignano/filter-empty.git"
+  },
+  "bugs": {
+    "url": "https://github.com/PaulSavignano/filter-empty/issues"
+  },
+  "homepage": "https://github.com/PaulSavignano/filter-empty#readme",
+  "keywords": [
+    "JavaScript",
+    "GraphQL",
+    "filter objects",
+    "filter arrays",
+    "clean objects",
+    "clean arrays"
+  ],
+  "license": "MIT",
+  "author": "Paul Savignano <paul.savignano@gmail.com> (http://github.com/PaulSavignano)",
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/PaulSavignano"
+  },
   "main": "dist/bundle.js",
   "module": "dist/bundle.js",
   "files": [
@@ -44,17 +67,18 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "scripts": {
-    "start": "react-scripts start",
-    "build-examples": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "build": "export NODE_ENV=production && rollup -c"
-  },
   "jest": {
     "collectCoverageFrom": [
       "src/lib/**/*.js",
       "!src/lib/**/__tests__/**/*.js"
     ]
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build-examples": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build": "export NODE_ENV=production && rollup -c",
+    "postinstall": "node -e \"console.log('\\u001b[35m\\u001b[1mEnjoy filter-empty? Please consider supporting the project at collective:\\u001b[22m\\u001b[39m\\n > \\u001b[34mhttps://opencollective.com/PaulSavignano/donate\\u001b[0m')\""
   }
 }

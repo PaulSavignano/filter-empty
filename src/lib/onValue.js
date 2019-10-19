@@ -1,27 +1,27 @@
 import isObject from './isObject'
 import isValue from './isValue'
 
-function onAccumulator({
+function onValue({
   accumulator,
-  index,
+  key,
   recursorFn,
   value,
 }) {
   // handle non-objects
   if (!isObject(value)) {
     if (isValue(value)) {
-      accumulator[index] = value
+      accumulator[key] = value
     }
     return accumulator
   }
   // handle arrays and objects
   if (Array.isArray(value) || Object.keys(value).length) {
     if (isValue(value)) {
-      accumulator[index] = recursorFn(value)
+      accumulator[key] = recursorFn(value)
     }
     return accumulator
   }
   return accumulator
 }
 
-export default onAccumulator
+export default onValue

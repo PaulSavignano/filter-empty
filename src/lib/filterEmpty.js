@@ -1,6 +1,6 @@
 import isObject from './isObject'
 import isValue from './isValue'
-import onAccumulator from './onAccumulator'
+import onValue from './onValue'
 
 function filterEmpty(arg) {
   // handle non-objects
@@ -12,9 +12,9 @@ function filterEmpty(arg) {
   // handle array
   if (Array.isArray(arg)) {
     return arg.reduce((a, v, i) => {
-      return onAccumulator({
+      return onValue({
         accumulator: a,
-        index: i,
+        key: i,
         recursorFn: filterEmpty,
         value: v,
       })
@@ -24,9 +24,9 @@ function filterEmpty(arg) {
   const keys = Object.keys(arg)
   if (keys.length) {
     return keys.reduce((a, k) => {
-      return onAccumulator({
+      return onValue({
         accumulator: a,
-        index: k,
+        key: k,
         recursorFn: filterEmpty,
         value: arg[k],
       })

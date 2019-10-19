@@ -1,10 +1,10 @@
-import onAccumulator from './onAccumulator'
+import onValue from './onValue'
 
-describe('onAccumulator', () => {
+describe('onValue', () => {
   it('should return value if primative', () => {
-    const a = onAccumulator({
+    const a = onValue({
       accumulator: [],
-      index: 0,
+      key: 0,
       recursorFn: jest.fn(),
       value: 'test',
     })
@@ -13,9 +13,9 @@ describe('onAccumulator', () => {
   it('should call recursor fn with array value', () => {
     const spy = jest.fn()
     const value = ['array']
-    onAccumulator({
+    onValue({
       accumulator: {},
-      index: 0,
+      key: 0,
       recursorFn: spy,
       value,
     })
@@ -24,9 +24,9 @@ describe('onAccumulator', () => {
   it('should call recursor fn with object value', () => {
     const spy = jest.fn()
     const value = { object: 'some object' }
-    onAccumulator({
+    onValue({
       accumulator: {},
-      index: 'object',
+      key: 'object',
       recursorFn: spy,
       value,
     })

@@ -24,9 +24,11 @@
     "type": "opencollective",
     "url": "https://opencollective.com/PaulSavignano"
   },
-  "main": "dist/bundle.js",
-  "module": "dist/bundle.js",
+  "main": "dist/index.js",
+  "module": "src/lib/index.js",
+  "types": "index.d.ts",
   "files": [
+    "*.d.ts",
     "dist"
   ],
   "browserslist": {
@@ -46,6 +48,9 @@
     "@babel/plugin-external-helpers": "^7.2.0",
     "@babel/plugin-transform-react-jsx": "^7.3.0",
     "@babel/preset-react": "^7.0.0",
+    "@rollup/plugin-commonjs": "^11.0.1",
+    "@rollup/plugin-node-resolve": "^6.1.0",
+    "@rollup/plugin-replace": "^2.3.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
     "postcss-modules": "^1.4.1",
@@ -54,10 +59,7 @@
     "react-scripts": "^3.1.1",
     "rollup": "^1.21.4",
     "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-commonjs": "^10.1.0",
-    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-replace": "^2.2.0",
     "rollup-plugin-uglify": "^6.0.3"
   },
   "peerDependencies": {
@@ -74,11 +76,12 @@
     ]
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build-examples": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
     "build": "export NODE_ENV=production && rollup -c",
-    "postinstall": "node -e \"console.log('\\u001b[35m\\u001b[1mEnjoy filter-empty? Please consider supporting the project at collective:\\u001b[22m\\u001b[39m\\n > \\u001b[34mhttps://opencollective.com/PaulSavignano/donate\\u001b[0m')\""
+    "build-examples": "react-scripts build",
+    "eject": "react-scripts eject",
+    "postinstall": "node -e \"console.log('\\u001b[35m\\u001b[1mPlease consider supporting at collective:\\u001b[22m\\u001b[39m\\n > \\u001b[34mhttps://opencollective.com/PaulSavignano/donate\\u001b[0m')\"",
+    "prepublishOnly": "npm run build",
+    "start": "react-scripts start",
+    "test": "react-scripts test --env=jsdom"
   }
 }

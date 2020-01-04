@@ -1,8 +1,8 @@
 import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
-import nodeResolve from 'rollup-plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import nodeResolve from '@rollup/plugin-node-resolve';
 import postcss from 'rollup-plugin-postcss'
-import replace from 'rollup-plugin-replace';
+import replace from '@rollup/plugin-replace';
 import { uglify } from 'rollup-plugin-uglify';
 
 const env = process.env.NODE_ENV
@@ -10,7 +10,7 @@ const env = process.env.NODE_ENV
 export default {
   input: 'src/lib/index.js',
   output: {
-    file: 'dist/bundle.js',
+    file: 'dist/index.js',
     format: 'cjs'
   },
   external: [

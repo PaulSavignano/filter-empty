@@ -8,7 +8,7 @@ Filter empty values from objects and/or arrays.
 [![NPM Downloads](https://img.shields.io/npm/dm/filter-empty.svg?style=flat)](https://npmcharts.com/compare/filter-empty?minimal=true)
 [![CircleCI](https://img.shields.io/circleci/build/github/PaulSavignano/filter-empty/master.svg)](https://circleci.com/gh/PaulSavignano/filter-empty/tree/master)
 [![codecov.io](https://codecov.io/gh/PaulSavignano/filter-empty/branch/master/graph/badge.svg)](https://codecov.io/gh/PaulSavignano/filter-empty)
-![ci](https://github.com/actions/filter-empty/workflows/ci/badge.svg)
+![ci](https://github.com/PaulSavignano/filter-empty/workflows/ci/badge.svg)
 [![BundleSize](https://img.shields.io/bundlephobia/minzip/filter-empty.svg)](https://bundlephobia.com/result?p=filter-empty)
 [![Dependencies](https://david-dm.org/PaulSavignano/filter-empty/master/status.svg)](https://david-dm.org/PaulSavignano/filter-empty/master)
 [![DevDependencies](https://david-dm.org/PaulSavignano/filter-empty/master/dev-status.svg)](https://david-dm.org/PaulSavignano/filter-empty/master?type=dev)
@@ -43,6 +43,7 @@ const objToFilter = {
       level3: {
         key1: 'This value is ok',
         key2: null,
+        key3: ['', null, 'This is also ok'],
       },
     },
   },
@@ -56,6 +57,7 @@ const filtered = filterEmpty(objToFilter)
 //     level2: {
 //       level3: {
 //         key1: 'This value is ok'
+//         key3: ['This is also ok']
 //       }
 //     }
 //   }

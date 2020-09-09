@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
-import "./App.css";
+import './App.css'
 import filterEmpty from '../lib'
 
 const obj = {
@@ -10,13 +10,13 @@ const obj = {
         key1: 'This value is fine',
         key2: null,
         key3: '',
-        key4: 0
-      }
-    }
-  }
+        key4: 0,
+      },
+    },
+  },
 }
 
-const arr = ['One', 'Two', {}]
+const arr = [{}, 'One', 'Two', {}]
 
 function App() {
   return (
@@ -37,4 +37,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

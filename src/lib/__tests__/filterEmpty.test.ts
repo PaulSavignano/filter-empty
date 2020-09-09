@@ -1,11 +1,9 @@
-import filterEmpty from './filterEmpty'
+import filterEmpty from '../filterEmpty'
 
 describe('filterEmpty', () => {
   // test primitive
   it('should handle primitive', () => {
     const result = filterEmpty('testing')
-    console.log('expected', result)
-    console.log('expected typeof ', typeof result)
     expect(result).toEqual('testing')
   })
 
@@ -30,17 +28,18 @@ describe('filterEmpty', () => {
   it('should remove empty objects from nested arrays', () => {
     const testObj = {
       array: [
+        {},
         {
-          one: 'one'
+          one: 'one',
         },
         {
           two: {
+            four: {},
             three: 'three',
-            four: {}
-          }
+          },
         },
-        {}
-      ]
+        {},
+      ],
     }
     const filtered = filterEmpty(testObj)
     expect(filtered.array.length).toEqual(2)
@@ -48,10 +47,16 @@ describe('filterEmpty', () => {
   })
   it('should remove values that are not isValue', () => {
     const testObj = {
+      empty: {},
       one: 'one',
-      two: undefined
+      two: undefined,
     }
     const filtered = filterEmpty(testObj)
     expect(filtered).toEqual({ one: 'one' })
+  })
+  it('should remove empty objects', () => {
+    const emptyObj = {}
+    const filtered = filterEmpty(emptyObj)
+    expect(filtered).toEqual(undefined)
   })
 })

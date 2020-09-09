@@ -1,6 +1,6 @@
 {
   "name": "filter-empty",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Filter empty values from objects and arrays",
   "repository": {
     "type": "git",
@@ -9,7 +9,7 @@
   "bugs": {
     "url": "https://github.com/PaulSavignano/filter-empty/issues"
   },
-  "homepage": "https://github.com/PaulSavignano/filter-empty#readme",
+  "homepage": ".",
   "keywords": [
     "JavaScript",
     "GraphQL",
@@ -25,12 +25,63 @@
     "url": "https://opencollective.com/PaulSavignano"
   },
   "main": "dist/index.js",
-  "module": "src/lib/index.js",
+  "module": "dist/index.js",
   "types": "index.d.ts",
   "files": [
-    "*.d.ts",
     "dist"
   ],
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run format && npm run lint && npm run typecheck && npm run build"
+    }
+  },
+  "scripts": {
+    "build": "rm -rf && export NODE_ENV=production && rollup -c",
+    "build-examples": "react-scripts build",
+    "eject": "react-scripts eject",
+    "format": "prettier --list-different '**/*.{js,jsx,ts,tsx,json,htm,html,yml,yaml}'",
+    "format:fix": "prettier --write '**/*.{js,jsx,ts,tsx,json,htm,html,yml,yaml}'",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "postinstall": "node -e \"console.log('\\u001b[35m\\u001b[1mPlease consider supporting at collective:\\u001b[22m\\u001b[39m\\n > \\u001b[34mhttps://opencollective.com/PaulSavignano/donate\\u001b[0m')\"",
+    "prepublishOnly": "npm run build",
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "test:cov": "react-scripts test --coverage",
+    "test:ci": "react-scripts test --watchAll=false",
+    "test:watch": "jest --watch --runInBand --detectOpenHandles",
+    "typecheck": "tsc --project . --noEmit"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
+    "@rollup/plugin-replace": "^2.3.3",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^24.0.0",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-sort-keys-fix": "^1.1.1",
+    "eslint-plugin-typescript-sort-keys": "^1.3.0",
+    "husky": "^4.3.0",
+    "prettier": "^2.1.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3",
+    "rollup": "^2.26.11",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.27.2",
+    "ts-jest": "^26.3.0",
+    "typescript": "~3.7.2"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
   "browserslist": {
     "production": [
       ">0.2%",
@@ -42,46 +93,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.6.0",
-    "@babel/plugin-external-helpers": "^7.2.0",
-    "@babel/plugin-transform-react-jsx": "^7.3.0",
-    "@babel/preset-react": "^7.0.0",
-    "@rollup/plugin-commonjs": "^11.0.1",
-    "@rollup/plugin-node-resolve": "^6.1.0",
-    "@rollup/plugin-replace": "^2.3.0",
-    "enzyme": "^3.10.0",
-    "enzyme-adapter-react-16": "^1.15.1",
-    "postcss-modules": "^1.4.1",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "react-scripts": "^3.1.1",
-    "rollup": "^1.21.4",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-uglify": "^6.0.3"
-  },
-  "peerDependencies": {
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/lib/**/*.js",
-      "!src/lib/**/__tests__/**/*.js"
-    ]
-  },
-  "scripts": {
-    "build": "export NODE_ENV=production && rollup -c",
-    "build-examples": "react-scripts build",
-    "eject": "react-scripts eject",
-    "postinstall": "node -e \"console.log('\\u001b[35m\\u001b[1mPlease consider supporting at collective:\\u001b[22m\\u001b[39m\\n > \\u001b[34mhttps://opencollective.com/PaulSavignano/donate\\u001b[0m')\"",
-    "prepublishOnly": "npm run build",
-    "start": "react-scripts start",
-    "test": "react-scripts test --env=jsdom"
   }
 }

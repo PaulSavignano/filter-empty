@@ -17,20 +17,33 @@ jobs:
           npm run typecheck
           npm run test:ci
 
-  # publish:
-  #   needs: format-lint-typecheck-test
-  #   runs-on: ubuntu-latest
-  #   if: github.ref == 'refs/heads/master'
-  #   steps:
-  #     - uses: actions/checkout@master
-  #     - uses: actions/setup-node@v1
-  #     - run: |
-  #         set -xe
-  #         npm ci
-  #         npm publish
-  #       env:
-  #         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  bump-version:
+    needs: format-lint-typecheck-test
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - name: Automated Version Bump
+        uses: phips28/gh-action-bump-version@master
+        with:
+          tag-prefix: 'v'
 
+  publish:
+    needs: bump-version
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: |
+          set -xe
+          npm ci
+          npm run build
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   # create-release:
   #   needs: format-lint-typecheck-test
   #   runs-on: ubuntu-latest
@@ -48,13 +61,3 @@ jobs:
   #         release_name: Release ${{ github.ref }}
   #         draft: false
   #         prerelease: false
-
-  create-release:
-    needs: format-lint-typecheck-test
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
-    steps:
-      - uses: mikeal/merge-release@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

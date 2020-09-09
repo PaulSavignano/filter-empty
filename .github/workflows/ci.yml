@@ -1,0 +1,42 @@
+name: ci
+
+on: [push]
+
+jobs:
+  format-lint-typecheck-test:
+    name: Format, lint, typecheck, and test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: |
+          set -xe
+          npm ci
+          npm run format
+          npm run lint 
+          npm run typecheck
+          npm run test:ci
+
+  publish:
+    needs: format-lint-typecheck-test
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@v1
+      - run: |
+          set -xe
+          npm ci
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  create-release:
+    needs: format-lint-typecheck-test
+    runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/checkout@master
+      - uses: Roang-zero1/github-create-release-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

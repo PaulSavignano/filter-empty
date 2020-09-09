@@ -36,6 +36,12 @@
       "pre-commit": "npm run format && npm run lint && npm run typecheck && npm run build"
     }
   },
+  "lint-staged": {
+    "*.{js*,ts*,json,md,css}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "scripts": {
     "build": "rm -rf && export NODE_ENV=production && rollup -c",
     "build-examples": "react-scripts build",
@@ -48,7 +54,7 @@
     "prepublishOnly": "npm run build",
     "start": "react-scripts start",
     "test": "react-scripts test",
-    "test:cov": "react-scripts test --coverage",
+    "test:cov": "react-scripts test --coverage --watchAll=false",
     "test:ci": "react-scripts test --watchAll=false",
     "test:watch": "jest --watch --runInBand --detectOpenHandles",
     "typecheck": "tsc --project . --noEmit"
@@ -93,5 +99,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "!**/examples/**",
+      "!src/*.{js,jsx,ts,tsx}",
+      "src/lib/*.{js,jsx,ts,tsx}"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": -10
+      }
+    }
   }
 }

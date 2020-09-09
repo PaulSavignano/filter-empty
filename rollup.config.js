@@ -5,11 +5,21 @@ import { terser } from 'rollup-plugin-terser'
 
 const env = process.env.NODE_ENV
 
+const override = {
+  exclude: ['src/lib/__tests__'],
+  include: ['src/lib'],
+}
+
 export default {
   input: 'src/lib/index.ts',
   output: {
     file: pkg.main,
     format: 'cjs',
   },
-  plugins: [typescript(), replace({ 'process.env.NODE_ENV': JSON.stringify(env) }), terser()],
+  plugins: [
+    typescript({ clean: true, tsconfigOverride: override }),
+    replace({ 'process.env.NODE_ENV': JSON.stringify(env) }),
+    terser(),
+  ],
+  sourceMap: 'inline',
 }

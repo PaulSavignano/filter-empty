@@ -22,6 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master'
     steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
       - name: Automated Version Bump
         uses: phips28/gh-action-bump-version@master
         with:

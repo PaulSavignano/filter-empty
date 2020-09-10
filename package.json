@@ -1,6 +1,6 @@
 {
   "name": "filter-empty",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "description": "Filter empty values from objects and arrays",
   "repository": {
     "type": "git",
@@ -11,12 +11,12 @@
   },
   "homepage": ".",
   "keywords": [
-    "JavaScript",
+    "Typescript",
     "GraphQL",
-    "filter objects",
-    "filter arrays",
-    "clean objects",
-    "clean arrays"
+    "filter",
+    "objects",
+    "arrays",
+    "clean"
   ],
   "license": "MIT",
   "author": "Paul Savignano <paul.savignano@gmail.com> (http://github.com/PaulSavignano)",

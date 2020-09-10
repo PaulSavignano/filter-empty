@@ -17,7 +17,7 @@ Filter empty values from objects and/or arrays.
 
 </div>
 
-Filter-Empty is a JavaScript library for removing empty values.
+Filter-Empty is a Typescript library for removing empty values from objects.
 
 - **Simple:** Api only requires an object and or array.
 - **Powerful:** Recursive iteration finds and removes deeply nested props.
@@ -67,6 +67,7 @@ const filtered = filterEmpty(objToFilter)
 ## Examples
 
 [Codesandbox](https://codesandbox.io/s/filter-empty-mtlwh?fontsize=14)
+[Codesandbox Typescript](https://codesandbox.io/s/filter-empty-typescript-cplo8?fontsize=14)
 
 ## Contributing
 

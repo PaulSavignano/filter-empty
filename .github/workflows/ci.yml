@@ -22,6 +22,7 @@ jobs:
           npm run test:ci
 
   publish:
+    name: Publish to npm
     needs: format-lint-typecheck-test
     runs-on: ubuntu-latest
     if: github.event_name == 'release'

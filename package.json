@@ -32,15 +32,13 @@
   ],
   "husky": {
     "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "npm run format && npm run lint && npm run typecheck && npm run build"
+      "pre-commit": "npx lint-staged && npm run typecheck && npm run build && npm run test:ci",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "lint-staged": {
-    "*.{css,htm,html,js*,json,md,ts*,yaml,yml}": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
+    "*.{css,htm*,js*,json,md,ts*,yaml,yml}": "prettier --write"
   },
   "scripts": {
     "build": "rm -rf && export NODE_ENV=production && rollup -c",

@@ -2,10 +2,9 @@ import isObject from './isObject'
 import isEmpty from './isEmpty'
 
 function filterEmpty(arg: any): any {
-  // handle primitive
-  if (!isObject(arg) && !isEmpty(arg)) {
-    return arg
-  }
+  // handle non-object
+  if (!isObject(arg) && !isEmpty(arg)) return arg
+
   // handle array
   if (Array.isArray(arg)) {
     let index = 0
@@ -17,6 +16,7 @@ function filterEmpty(arg: any): any {
       return a
     }, [])
   }
+
   // handle object
   const keys = Object.keys(arg)
   if (keys.length) {

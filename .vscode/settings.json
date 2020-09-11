@@ -1,0 +1,18 @@
+{
+  "editor.autoClosingBrackets": "always",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.formatOnSave": true,
+  "eslint.alwaysShowStatus": true,
+  "eslint.enable": true,
+  "files.autoSave": "off",
+  "git.autofetch": true,
+  "window.zoomLevel": 0,
+  "eslint.validate": ["graphql", "javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "[yaml]": {
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "none"
+  }
+}

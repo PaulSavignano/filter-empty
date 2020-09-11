@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "apollographql.vscode-apollo",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "ms-azuretools.vscode-docker",
+    "redhat.vscode-yaml",
+    "sdras.night-owl",
+    "tobermory.es6-string-html",
+    "tyriar.sort-lines",
+    "wix.vscode-import-cost"
+  ]
+}

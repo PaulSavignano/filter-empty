@@ -1,14 +1,13 @@
-<h1 align="center">Filter-Empty</h1>
+<h1 align="center">filter-empty</h1>
 
 <div align="center">
-
 Filter empty values from objects and/or arrays.
 
 [![NPM Version](https://img.shields.io/npm/v/filter-empty.svg?style=flat)](https://www.npmjs.com/package/filter-empty)
 [![NPM Downloads](https://img.shields.io/npm/dm/filter-empty.svg?style=flat)](https://npmcharts.com/compare/filter-empty?minimal=true)
 [![CircleCI](https://img.shields.io/circleci/build/github/PaulSavignano/filter-empty/master.svg)](https://circleci.com/gh/PaulSavignano/filter-empty/tree/master)
 [![codecov.io](https://codecov.io/gh/PaulSavignano/filter-empty/branch/master/graph/badge.svg)](https://codecov.io/gh/PaulSavignano/filter-empty)
-![Release](https://github.com/PaulSavignano/filter-empty/workflows/release/badge.svg)
+![build](https://github.com/PaulSavignano/filter-empty/workflows/release/badge.svg)
 [![BundleSize](https://img.shields.io/bundlephobia/minzip/filter-empty.svg)](https://bundlephobia.com/result?p=filter-empty)
 [![Dependencies](https://david-dm.org/PaulSavignano/filter-empty/master/status.svg)](https://david-dm.org/PaulSavignano/filter-empty/master)
 [![DevDependencies](https://david-dm.org/PaulSavignano/filter-empty/master/dev-status.svg)](https://david-dm.org/PaulSavignano/filter-empty/master?type=dev)
@@ -19,15 +18,29 @@ Filter empty values from objects and/or arrays.
 
 Filter-Empty is a Typescript library for removing empty values from objects.
 
-- **Simple:** Only requires an object and or array.
-- **Powerful:** Recursive iteration finds and removes deeply nested props.
-- **Performant:** No weight from external dependencies.
-  <br />
+## Features
+
+- Filters empty values from objects and arrays.
+- Creates new mutation free objects
+- Recurses nested props.
+- Small bundle size, [![BundleSize](https://img.shields.io/bundlephobia/minzip/filter-empty.svg)](https://bundlephobia.com/result?p=filter-empty).
+
+## Benefits
+
+- New objects free of null, undefined, empty arrays, and empty strings.
+- Removal of empty nested props.
+- Light, fast, and dependency free lib.
+
+## Motivation
+
+Working with graphql and its great type safty results in null values for some props. Sometime in consuming these props on the client it's better to remove the empty props rather than implementing conditionals.
+
+<br />
 
 ## Installation
 
 ```
-npm install filter-empty
+npm install -S filter-empty
 ```
 
 ## Usage
@@ -67,8 +80,44 @@ const filtered = filterEmpty(objToFilter)
 ## Examples
 
 [Codesandbox](https://codesandbox.io/s/filter-empty-mtlwh?fontsize=14)
+
 [Codesandbox Typescript](https://codesandbox.io/s/filter-empty-typescript-cplo8?fontsize=14)
 
 ## Contributing
 
-- see CONTRIBUTING.md
+1. Fork the repository.
+
+2. Clone the fork to your local machine and add upstream remote:
+
+```sh
+git clone https://github.com/<your username>/filter-empty.git
+cd filter-empty
+git remote add upstream https://github.com/PaulSavignano/filter-empty.git
+```
+
+3. Synchronize your local `next` branch with the upstream one:
+
+```sh
+git checkout next
+git pull upstream next
+```
+
+4. Install the dependencies:
+
+```sh
+npm install
+```
+
+5. Create a new branch:
+
+```sh
+git checkout -b my-branch
+```
+
+6. Make changes, commit and push to your fork:
+
+```sh
+git push -u origin HEAD
+```
+
+7. Go to [the repository](https://github.com/PaulSavignano/filter-empty) and make a Pull Request.

@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "esModuleInterop": true,
@@ -13,8 +12,9 @@
     "noEmit": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
+    "sourceMap": true,
     "strict": true,
-    "target": "es5"
+    "target": "esnext"
   },
   "include": ["src"],
   "exclude": ["node_modules", "build", "dist"]

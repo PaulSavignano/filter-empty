@@ -1,61 +1,22 @@
 {
   "name": "filter-empty",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "description": "Filter empty values from objects and arrays",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/PaulSavignano/filter-empty.git"
+  "author": "Paul Savignano <paul.savignano@gmail.com> (http://github.com/PaulSavignano)",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "bugs": {
     "url": "https://github.com/PaulSavignano/filter-empty/issues"
-  },
-  "homepage": ".",
-  "keywords": [
-    "Typescript",
-    "GraphQL",
-    "filter",
-    "objects",
-    "arrays",
-    "clean"
-  ],
-  "license": "MIT",
-  "author": "Paul Savignano <paul.savignano@gmail.com> (http://github.com/PaulSavignano)",
-  "collective": {
-    "type": "opencollective",
-    "url": "https://opencollective.com/PaulSavignano"
-  },
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "npx lint-staged && npm run typecheck && npm run build && npm run test:ci",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
-    "*.{css,htm*,js*,json,md,ts*,yaml,yml}": "prettier --write"
-  },
-  "scripts": {
-    "build": "rm -rf && export NODE_ENV=production && rollup -c",
-    "build-examples": "react-scripts build",
-    "eject": "react-scripts eject",
-    "format": "prettier --list-different '**/*.{css,htm,html,js*,json,md,ts*,yaml,yml}'",
-    "format:fix": "prettier --write '**/*.{css,htm,html,js*,json,md,ts*,yaml,yml}'",
-    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
-    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
-    "postinstall": "node -e \"console.log('\\u001b[35m\\u001b[1mPlease consider supporting at collective:\\u001b[22m\\u001b[39m\\n > \\u001b[34mhttps://opencollective.com/PaulSavignano/donate\\u001b[0m')\"",
-    "prepublishOnly": "npm run build",
-    "start": "react-scripts start",
-    "test": "react-scripts test",
-    "test:cov": "react-scripts test --coverage --watchAll=false",
-    "test:ci": "react-scripts test --watchAll=false",
-    "test:watch": "jest --watch --runInBand --detectOpenHandles",
-    "typecheck": "tsc --project . --noEmit"
   },
   "devDependencies": {
     "@commitlint/cli": "^9.1.2",
@@ -87,17 +48,16 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/PaulSavignano"
+  },
+  "homepage": "https://github.com/PaulSavignano/filter-empty#readme",
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "npm run lint && npm run typecheck && npm run test:ci && npm run build && npx lint-staged"
+    }
   },
   "jest": {
     "collectCoverageFrom": [
@@ -107,11 +67,46 @@
     ],
     "coverageThreshold": {
       "global": {
-        "branches": 80,
-        "functions": 80,
-        "lines": 80,
+        "branches": 90,
+        "functions": 90,
+        "lines": 90,
         "statements": -10
       }
     }
-  }
+  },
+  "keywords": [
+    "filter-empty",
+    "typescript",
+    "graphql",
+    "filter",
+    "objects",
+    "arrays",
+    "clean"
+  ],
+  "license": "MIT",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
+    "*.{css,htm*,js*,json,md,ts*,yaml,yml}": "prettier --write"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "repository": "https://github.com/PaulSavignano/filter-empty.git",
+  "scripts": {
+    "build": "rm -rf && export NODE_ENV=production && rollup -c",
+    "build-examples": "react-scripts build",
+    "eject": "react-scripts eject",
+    "format": "prettier --list-different '**/*.{css,htm,html,js*,json,md,ts*,yaml,yml}'",
+    "format:fix": "prettier --write '**/*.{css,htm,html,js*,json,md,ts*,yaml,yml}'",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx --fix",
+    "postinstall": "node -e \"console.log('\\u001b[35m\\u001b[1mPlease consider supporting at collective:\\u001b[22m\\u001b[39m\\n > \\u001b[34mhttps://opencollective.com/PaulSavignano/donate\\u001b[0m')\"",
+    "prepublishOnly": "npm run build",
+    "start": "PUBLIC_URL=/ react-scripts start",
+    "test": "react-scripts test",
+    "test:cov": "react-scripts test --coverage --watchAll=false",
+    "test:ci": "react-scripts test --watchAll=false",
+    "test:watch": "jest --watch --runInBand --detectOpenHandles",
+    "typecheck": "tsc --project . --noEmit"
+  },
+  "types": "dist/index.d.ts"
 }

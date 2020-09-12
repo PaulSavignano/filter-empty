@@ -13,6 +13,7 @@ const override = {
 export default {
   input: 'src/lib/index.ts',
   output: {
+    exports: 'auto',
     file: pkg.main,
     format: 'cjs',
   },
@@ -21,5 +22,4 @@ export default {
     replace({ 'process.env.NODE_ENV': JSON.stringify(env) }),
     terser(),
   ],
-  sourceMap: 'inline',
 }

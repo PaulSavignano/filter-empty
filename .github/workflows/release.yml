@@ -5,8 +5,8 @@ on:
     types: [published]
 
 jobs:
-  format-lint-typecheck-test:
-    name: Format, lint, typecheck, and test
+  lint-format-typecheck-test-build:
+    name: Lint, format, typecheck, test, and build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,14 +14,15 @@ jobs:
       - run: |
           set -xe
           npm ci
-          npm run format
           npm run lint 
+          npm run format
           npm run typecheck
           npm run test:ci
+          npm run build
 
   publish:
     name: Publish to npm
-    needs: format-lint-typecheck-test
+    needs: lint-format-typecheck-test-build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

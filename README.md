@@ -1,6 +1,7 @@
 <h1 align="center">filter-empty</h1>
 
 <div align="center">
+
 Filter empty values from objects and/or arrays.
 
 [![NPM Version](https://img.shields.io/npm/v/filter-empty.svg?style=flat)](https://www.npmjs.com/package/filter-empty)
@@ -23,7 +24,7 @@ Filter-Empty is a Typescript library for removing empty values from objects.
 - Filters empty values from objects and arrays.
 - Creates new mutation free objects
 - Recurses nested props.
-- Small bundle size, [![BundleSize](https://img.shields.io/bundlephobia/minzip/filter-empty.svg)](https://bundlephobia.com/result?p=filter-empty).
+- [![BundleSize](https://img.shields.io/bundlephobia/minzip/filter-empty.svg)](https://bundlephobia.com/result?p=filter-empty) [![BundleSize](https://img.shields.io/bundlephobia/min/filter-empty.svg)](https://bundlephobia.com/result?p=filter-empty).
 
 ## Benefits
 

@@ -16,37 +16,15 @@ Filter empty values from objects and/or arrays.
 [![Patreon](https://img.shields.io/badge/patreon-support%20the%20author-blue.svg)](https://www.patreon.com/PaulSavignano)
 
 </div>
+</br>
 
-Filter-Empty is a Typescript library for removing empty values from objects.
-
-## Features
-
-- Filters empty values from objects and arrays.
-- Creates new mutation free objects
-- Recurses nested props.
-- [![BundleSize](https://img.shields.io/bundlephobia/minzip/filter-empty.svg)](https://bundlephobia.com/result?p=filter-empty) [![BundleSize](https://img.shields.io/bundlephobia/min/filter-empty.svg)](https://bundlephobia.com/result?p=filter-empty).
-
-## Benefits
-
-- New objects free of null, undefined, empty arrays, and empty strings.
-- Removal of empty nested props.
-- Light, fast, and dependency free lib.
-
-## Motivation
-
-Working with graphql and its great type safty results in null values for some props. Sometime in consuming these props on the client it's better to remove the empty props rather than implementing conditionals.
-
-<br />
-
-## Installation
+## Getting started
 
 ```
 npm install -S filter-empty
 ```
 
-## Usage
-
-Here is an example to get you started:
+Once installed, import and start filtering objects.
 
 ```jsx
 import filterEmpty from 'filter-empty'
@@ -83,6 +61,23 @@ const filtered = filterEmpty(objToFilter)
 [Codesandbox](https://codesandbox.io/s/filter-empty-mtlwh?fontsize=14)
 
 [Codesandbox Typescript](https://codesandbox.io/s/filter-empty-typescript-cplo8?fontsize=14)
+
+## Motivation
+
+Working with graphql and its great type safty results in null values for some props. Sometime in consuming these props on the client it's better to remove the empty props rather than implementing conditionals.
+
+## Features
+
+- Filters empty values from objects and arrays.
+- Creates new mutation free objects
+- Recurses nested props.
+- [![BundleSize](https://img.shields.io/bundlephobia/minzip/filter-empty.svg)](https://bundlephobia.com/result?p=filter-empty) [![BundleSize](https://img.shields.io/bundlephobia/min/filter-empty.svg)](https://bundlephobia.com/result?p=filter-empty).
+
+## Benefits
+
+- New objects free of null, undefined, empty arrays, and empty strings.
+- Removal of empty nested props.
+- Light, fast, and dependency free lib.
 
 ## Contributing
 

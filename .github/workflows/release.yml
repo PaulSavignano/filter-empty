@@ -2,7 +2,7 @@ name: release
 
 on:
   release:
-    types: [published]
+    types: [created]
 
 jobs:
   lint-format-typecheck-test-build:
@@ -21,7 +21,7 @@ jobs:
           npm run build
 
   publish:
-    name: Publish to npm
+    name: Publish
     needs: lint-format-typecheck-test-build
     runs-on: ubuntu-latest
     steps:

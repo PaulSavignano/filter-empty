@@ -1,0 +1,21 @@
+name: master
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  lint-format-typecheck-test-build:
+    name: Lint, format, typecheck, test, and build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: |
+          set -xe
+          npm ci
+          npm run lint 
+          npm run format
+          npm run typecheck
+          npm run test:ci
+          npm run build

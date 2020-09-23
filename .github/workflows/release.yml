@@ -17,8 +17,10 @@ jobs:
           npm run lint 
           npm run format
           npm run typecheck
-          npm run test:ci
+          npm run test:cov
           npm run build
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
 
   publish:
     name: Publish

@@ -48,6 +48,9 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "files": [
+    "dist"
+  ],
   "funding": {
     "type": "patreon",
     "url": "https://www.patreon.com/PaulSavignano"

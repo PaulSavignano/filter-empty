@@ -6,7 +6,6 @@ Filter empty values from objects and/or arrays.
 
 [![NPM Version](https://img.shields.io/npm/v/filter-empty.svg?style=flat)](https://www.npmjs.com/package/filter-empty)
 [![NPM Downloads](https://img.shields.io/npm/dm/filter-empty.svg?style=flat)](https://npmcharts.com/compare/filter-empty?minimal=true)
-[![CircleCI](https://img.shields.io/circleci/build/github/PaulSavignano/filter-empty/master.svg)](https://circleci.com/gh/PaulSavignano/filter-empty/tree/master)
 [![codecov.io](https://codecov.io/gh/PaulSavignano/filter-empty/branch/master/graph/badge.svg)](https://codecov.io/gh/PaulSavignano/filter-empty)
 ![build](https://github.com/PaulSavignano/filter-empty/workflows/release/badge.svg)
 [![BundleSize](https://img.shields.io/bundlephobia/minzip/filter-empty.svg)](https://bundlephobia.com/result?p=filter-empty)

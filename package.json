@@ -1,6 +1,6 @@
 {
   "name": "filter-empty",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Filter empty values from objects and arrays",
   "author": "Paul Savignano <paul.savignano@gmail.com> (http://github.com/PaulSavignano)",
   "browserslist": {

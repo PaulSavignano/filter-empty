@@ -26,6 +26,6 @@ module.exports = {
     'typescript-sort-keys/interface': 'error',
     'typescript-sort-keys/string-enum': 'error',
     quotes: ['error', 'single', { avoidEscape: true }],
-    semi: ['error', 'never'],
+    semi: ['error', 'always'],
   },
-}
+};

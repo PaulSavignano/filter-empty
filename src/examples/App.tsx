@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import './App.css'
-import Pre from './Pre'
-import filterEmpty from '../lib'
+import './App.css';
+import Pre from './Pre';
+import filterEmpty from '../lib';
 
 const obj = {
   level1: {
@@ -16,11 +16,11 @@ const obj = {
       },
     },
   },
-}
+};
 
-const arr = [{}, 'One', 'Two', {}]
+const arr = [{}, 'One', 'Two', {}];
 
-function App() {
+function App(): React.ReactNode {
   return (
     <div className="App">
       <h1>Arrays</h1>
@@ -36,7 +36,7 @@ function App() {
       <h3>Filtered Object</h3>
       <Pre json={filterEmpty(obj)} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

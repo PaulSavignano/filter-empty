@@ -1,4 +1,4 @@
-import isObject from '../isObject'
+import isObject from '../isObject';
 
 const tests = [
   { expected: false, name: 'string', value: 'string' },
@@ -7,13 +7,13 @@ const tests = [
   { expected: true, name: 'object', value: {} },
   { expected: true, name: 'array', value: [] },
   { expected: false, name: 'number', value: 0 },
-]
+];
 
 describe('isObject', () => {
   tests.forEach(({ expected, name, value }) => {
     it(`should return ${expected} for ${name}`, () => {
-      const result = isObject(value)
-      expect(result).toEqual(expected)
-    })
-  })
-})
+      const result = isObject(value);
+      expect(result).toEqual(expected);
+    });
+  });
+});

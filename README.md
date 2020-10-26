@@ -27,7 +27,7 @@ npm install -S filter-empty
 Once installed, import and start filtering objects.
 
 ```jsx
-import filterEmpty from 'filter-empty'
+import filterEmpty from 'filter-empty';
 
 const objToFilter = {
   level1: {
@@ -39,9 +39,9 @@ const objToFilter = {
       },
     },
   },
-}
+};
 
-const filtered = filterEmpty(objToFilter)
+const filtered = filterEmpty(objToFilter);
 
 // result
 // {
@@ -58,6 +58,9 @@ const filtered = filterEmpty(objToFilter)
 
 ## Examples
 
+<a href="https://codesandbox.io/s/filter-empty-typescript-cplo8?fontsize=14">
+
+</a>
 [Codesandbox](https://codesandbox.io/s/filter-empty-mtlwh?fontsize=14)
 
 [Codesandbox Typescript](https://codesandbox.io/s/filter-empty-typescript-cplo8?fontsize=14)

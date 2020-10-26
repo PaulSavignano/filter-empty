@@ -1,4 +1,4 @@
-import isEmpty from '../isEmpty'
+import isEmpty from '../isEmpty';
 
 const tests = [
   { expected: false, name: 'boolean', value: false },
@@ -9,13 +9,13 @@ const tests = [
   { expected: true, name: 'no argument' },
   { expected: true, name: 'null', value: null },
   { expected: true, name: 'undefined', value: undefined },
-]
+];
 
 describe('isEmpty', () => {
   tests.forEach(({ expected, name, value }) => {
     it(`should return ${expected} for ${name}`, () => {
-      const result = isEmpty(value)
-      expect(result).toEqual(expected)
-    })
-  })
-})
+      const result = isEmpty(value);
+      expect(result).toEqual(expected);
+    });
+  });
+});

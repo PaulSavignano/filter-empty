@@ -1,16 +1,13 @@
-.babelrc
-.circleci
 .codecov.yml
+.eslintcache
 .eslintignore
-.eslintignore
+.eslintrc.js
 .github
 .gitignore
+.npmignore
 .prettierignore
 .prettierrc
-.rollup.config.js
 .vscode
-LICENSE
-README.md
 commitlint.config.js
 coverage
 node_modules
@@ -18,3 +15,5 @@ package-lock.json
 public
 rollup.config.js
 src
+tsconfig.json
+yarn.lock

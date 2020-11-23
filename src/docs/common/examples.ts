@@ -1,4 +1,4 @@
-export const obj = {
+export const example1 = {
   level1: {
     level2: {
       level3: {
@@ -13,4 +13,4 @@ export const obj = {
   },
 };
 
-export const arr = ['', null, undefined, false, 'Another value', obj];
+export const arr = ['', null, undefined, false, 'Another value', example1];

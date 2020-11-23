@@ -1,9 +1,9 @@
-import React, { useCallback, useContext, useRef } from 'react';
 import IconButton from '@material-ui/core/IconButton';
 import Input from '@material-ui/core/Input';
+import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Clear from '@material-ui/icons/Clear';
 import IconSearch from '@material-ui/icons/Search';
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import React, { useCallback, useContext, useRef } from 'react';
 
 import SearchContext from './SearchContext';
 
@@ -27,21 +27,22 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 const SearchField: React.FC = () => {
-  const { setSearchOpen, setSearchQ, setSearchResults, q } = useContext(SearchContext);
+  const { q, setSearchOpen, setSearchQ, setSearchResults2 } = useContext(SearchContext);
   const classes = useStyles();
   const timeoutId = useRef<NodeJS.Timeout | null>(null);
   const onChange = useCallback(
     (e) => {
       timeoutId && timeoutId.current && clearTimeout(timeoutId.current);
+      timeoutId.current = null;
       setSearchQ(e.target.value);
       const nextTimeoutId = setTimeout(() => {
         timeoutId && timeoutId.current && clearTimeout(timeoutId.current);
         timeoutId.current = null;
-        setSearchResults();
+        setSearchResults2();
       }, 1000);
       timeoutId.current = nextTimeoutId;
     },
-    [setSearchQ, setSearchResults]
+    [setSearchQ, setSearchResults2]
   );
   return (
     <span className={classes.SearchField}>

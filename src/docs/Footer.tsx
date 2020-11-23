@@ -1,11 +1,11 @@
-import React from 'react';
 import Box from '@material-ui/core/Box';
-import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
-import Typography from '@material-ui/core/Typography';
-import { Link } from 'react-router-dom';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import CodeIcon from '@material-ui/icons/Code';
 import PlayIcon from '@material-ui/icons/PlayArrow';
+import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 import IconButton from './common/IconButton';
 

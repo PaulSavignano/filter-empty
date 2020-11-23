@@ -1,26 +1,58 @@
-import React, { useContext } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import React, { useCallback, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 
-import Main from '../Main';
-import Section from '../Section';
-import SearchContext from './SearchContext';
 import componentMap from '../../componentMap';
-import HighlightText from './HighlightText2';
+import Main from '../Main';
+import HightlightHtml from './HighlightHtml';
+import HighlightText from './HighlightText';
+import SearchContext from './SearchContext';
+
+const useStyles = makeStyles({
+  comp: {
+    flex: '1 1 100%',
+  },
+  h2: {
+    flex: '1 1 100%',
+  },
+  section: {
+    cursor: 'pointer',
+  },
+});
 
 const SearchList: React.FC = () => {
-  const { results, q } = useContext(SearchContext);
+  const { q, results, setSearchClose } = useContext(SearchContext);
   const history = useHistory();
+  const classes = useStyles();
+  const onClick = useCallback(
+    (route) => {
+      setSearchClose();
+      history.push(route);
+    },
+    [history, setSearchClose]
+  );
   if (!results) return null;
   return (
     <Main>
-      {results.map(({ component, children, route, ...rest }, index) => {
-        const Component = componentMap[component];
+      {results.map(({ components, route }, index) => {
         return (
-          <Section key={index} onClick={(): void => history.push(route)}>
-            <Component {...rest}>
-              <HighlightText highlightText={q} text={children as string} />
-            </Component>
-          </Section>
+          <section className={classes.section} key={index} onClick={(): void => onClick(route)}>
+            {components.map(({ children, component }) => {
+              const Comp = componentMap[component];
+              if (component === 'SyntaxHighligher') {
+                return (
+                  <HightlightHtml className={classes.comp} highlightText={q} key={index}>
+                    <Comp>{children}</Comp>
+                  </HightlightHtml>
+                );
+              }
+              return (
+                <Comp className={classes.comp} key={index}>
+                  <HighlightText highlightText={q} text={children as string} />
+                </Comp>
+              );
+            })}
+          </section>
         );
       })}
     </Main>

@@ -1,5 +1,5 @@
-import React from 'react';
 import SvgIcon from '@material-ui/core/SvgIcon';
+import React from 'react';
 
 const LinkIcon: React.FC = () => (
   <SvgIcon fontSize="small" height="16" viewBox="0 0 16 16" width="16">

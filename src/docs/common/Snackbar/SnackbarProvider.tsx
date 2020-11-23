@@ -1,10 +1,10 @@
-import React, { useCallback, useReducer, useMemo } from 'react';
 import Snackbar from '@material-ui/core/Snackbar';
 import Alert from '@material-ui/lab/Alert';
+import React, { useCallback, useReducer, useMemo } from 'react';
 
-import SnackbarContext from './SnackbarContext';
-import reducer from './reducer';
 import initialState from './initialState';
+import reducer from './reducer';
+import SnackbarContext from './SnackbarContext';
 import { SnackbarValue } from './types';
 
 const SnackbarProvider: React.FC = ({ children }) => {

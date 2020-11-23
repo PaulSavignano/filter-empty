@@ -1,25 +1,24 @@
-import React, { useContext, useCallback, useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
-import FilterIcon from '@material-ui/icons/FilterList';
+import MuiIconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import MuiIconButton from '@material-ui/core/IconButton';
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
-import Toolbar from '@material-ui/core/Toolbar';
-import { NavLink } from 'react-router-dom';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import Toolbar from '@material-ui/core/Toolbar';
+import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import FilterIcon from '@material-ui/icons/FilterList';
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SearchIcon from '@material-ui/icons/Search';
+import React, { useContext, useCallback, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import BrandName from './BrandName';
 import IconButton from './common/IconButton';
 import SearchContext from './common/Search/SearchContext';
 import SearchField from './common/Search/SearchField';
-
 import nav from './nav';
 
 const drawerWidth = 240;

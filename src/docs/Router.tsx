@@ -1,14 +1,42 @@
+import Box from '@material-ui/core/Box';
 import React, { useContext } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Box from '@material-ui/core/Box';
 
-import Section from './common/Section';
 import Main from './common/Main';
-import routes from './routes';
 import SearchContext from './common/Search/SearchContext';
 import SearchList from './common/Search/SearchList';
-
 import componentMap from './componentMap';
+import getStarted from './pages/getStarted';
+import home from './pages/home';
+
+export interface ComponentType {
+  children: any;
+  className?: string;
+  component: string;
+  src?: string;
+  style?: React.CSSProperties;
+}
+
+export interface RoutesType {
+  [key: string]: ComponentType[];
+}
+
+const routes: RoutesType = {
+  '/': home,
+  '/get-started': getStarted,
+};
+
+const Recursor: React.FC<ComponentType> = ({ children, component, ...rest }) => {
+  console.log('component', component);
+  const Comp = componentMap[component];
+  return (
+    <Comp {...rest}>
+      {children && Array.isArray(children)
+        ? children.map((c: ComponentType, i: number) => <Recursor key={i} {...c} />)
+        : children}
+    </Comp>
+  );
+};
 
 function Router() {
   const { isOpen, q } = useContext(SearchContext);
@@ -19,21 +47,13 @@ function Router() {
     <Box display="flex" flexDirection="column" flexGrow={1}>
       <Switch>
         {Object.keys(routes).map((route) => {
-          const { sections } = routes[route];
+          const components = routes[route];
           return (
             <Route exact key={route} path={route}>
               <Main>
-                {sections.map((section, i) => {
-                  const { components, ...rest } = section;
-                  return (
-                    <Section key={i} {...rest}>
-                      {components.map(({ component, ...rest }, i) => {
-                        const Component = componentMap[component];
-                        return <Component key={i} {...rest} />;
-                      })}
-                    </Section>
-                  );
-                })}
+                {components.map((c, i) => (
+                  <Recursor key={i} {...c} />
+                ))}
               </Main>
             </Route>
           );

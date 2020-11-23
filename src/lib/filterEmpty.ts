@@ -1,5 +1,5 @@
-import isObject from './isObject';
 import isEmpty from './isEmpty';
+import isObject from './isObject';
 
 function filterEmpty(arg: any): any {
   // handle non-object

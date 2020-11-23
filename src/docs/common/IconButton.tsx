@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
 import MuiIconButton, { IconButtonProps as MuiIconButtonProps } from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import SnackbarContext from './Snackbar/SnackbarContext';
@@ -10,7 +10,7 @@ interface IconButtonProps extends MuiIconButtonProps {
   to?: string;
 }
 
-const IconButton: React.FC<IconButtonProps> = ({ children, title, to, onClick }) => {
+const IconButton: React.FC<IconButtonProps> = ({ children, onClick, title, to }) => {
   const { isOpen } = useContext(SnackbarContext);
 
   const iconButtonProps = to

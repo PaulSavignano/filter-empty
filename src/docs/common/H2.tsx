@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
 import { Typography } from '@material-ui/core';
-import { Link } from 'react-router-dom';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
+import clsx from 'clsx';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-import LinkIcon from './LinkIcon';
 import getSlug from './getSlug';
+import LinkIcon from './LinkIcon';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -21,16 +22,18 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-const H2: React.FC = ({ children }) => {
+const H2: React.FC<{ className?: string; to?: string }> = ({ children, className, to: rootTo }) => {
   const classes = useStyles();
   const [isHovering, setHovering] = useState(false);
-  const to = children && typeof children === 'string' ? `#${getSlug(children)}` : '#';
+  const slug = rootTo ? rootTo : children && typeof children === 'string' && getSlug(children);
+  const to = rootTo || `#${slug}`;
   return (
     <Typography
-      className={classes.typography}
+      className={clsx(classes.typography, className)}
       onMouseEnter={(): void => setHovering(true)}
       onMouseLeave={(): void => setHovering(false)}
       variant="h2"
+      {...(slug && { id: slug })}
     >
       <Link to={to}>{children}</Link>
       {isHovering ? <LinkIcon /> : null}

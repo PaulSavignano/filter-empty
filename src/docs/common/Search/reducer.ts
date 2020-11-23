@@ -1,8 +1,9 @@
 import { StateType } from './initialState';
-import { ResultType } from './SearchProvider';
+import { ResultType } from './search';
 
 export type ActionType =
   | { isOpen: boolean; type: 'set_search_open' }
+  | { type: 'set_search_close' }
   | { q: string; type: 'set_search_q' }
   | { results: ResultType[]; type: 'set_search_results' };
 
@@ -13,6 +14,12 @@ const reducer = (state: StateType, action: ActionType): StateType => {
       return {
         ...state,
         isOpen,
+      };
+    case 'set_search_close':
+      return {
+        ...state,
+        isOpen: false,
+        q: '',
       };
     case 'set_search_q':
       const { q } = action;

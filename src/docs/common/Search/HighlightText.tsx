@@ -1,19 +1,22 @@
-import React from 'react';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
+import React from 'react';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     highlight: {
       backgroundColor: theme.palette.primary.light,
+      color: theme.palette.common.black,
+      fontStyle: 'italic',
     },
   })
 );
 
 const HighlightText: React.FC<{ highlightText: string; text: string }> = ({
-  text,
   highlightText,
+  text,
 }) => {
   const classes = useStyles();
+
   const cleaned = text.replace(/<[^>]*>?/gm, '');
   const parts = cleaned.split(new RegExp(`(${highlightText})`, 'i')).filter(Boolean);
   return (

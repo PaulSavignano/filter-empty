@@ -3,7 +3,7 @@ import { SnackbarAction, SnackbarState } from './types';
 function reducer(state: SnackbarState, action: SnackbarAction): SnackbarState {
   switch (action.type) {
     case 'open_snackbar': {
-      const { severity, message } = action;
+      const { message, severity } = action;
       return {
         ...state,
         isOpen: true,

@@ -19,10 +19,21 @@ code {
 main {
   display: flex;
   flex-flow: column;
+  flex: 1 1 auto;
   margin: 0 auto;
   max-width: 960px;
-  flex: 1 1 auto;
+  padding: 8px 0;
   width: 100%;
+}
+
+article {
+  display: flex;
+}
+
+section {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 8px 0;
 }
 
 a {

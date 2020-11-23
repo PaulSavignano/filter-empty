@@ -1,5 +1,5 @@
-import React from 'react';
 import Box, { BoxProps } from '@material-ui/core/Box';
+import React from 'react';
 
 const P: React.FC<BoxProps> = ({
   component = 'p',

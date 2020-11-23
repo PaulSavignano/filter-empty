@@ -1,4 +1,5 @@
 import React from 'react';
+
 import isObject from '../../lib/isObject';
 
 const displayFns = (arg: any): any => {

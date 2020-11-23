@@ -1,4 +1,4 @@
-import { ResultType } from './SearchProvider';
+import { ResultType } from './search';
 
 export interface State {
   isOpen: boolean;

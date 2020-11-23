@@ -1,5 +1,5 @@
-import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import CodeIcon from '@material-ui/icons/Code';
+import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 
 interface Nav {
   [key: string]: {

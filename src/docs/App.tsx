@@ -1,10 +1,10 @@
 import React from 'react';
 
+import SearchProvider from './common/Search/SearchProvider';
 import Footer from './Footer';
 import Header from './Header';
+import routes from './pages';
 import Router from './Router';
-import SearchProvider from './common/Search/SearchProvider';
-import routes from './routes';
 import './App.css';
 
 function App(): React.ReactElement {
